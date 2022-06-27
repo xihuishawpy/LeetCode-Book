@@ -12,16 +12,16 @@ class Solution:
         if not matrix: return []
         l, r, t, b, res = 0, len(matrix[0]) - 1, 0, len(matrix) - 1, []
         while True:
-            for i in range(l, r + 1): res.append(matrix[t][i]) # left to right
+            res.extend(matrix[t][i] for i in range(l, r + 1))
             t += 1
             if t > b: break
-            for i in range(t, b + 1): res.append(matrix[i][r]) # top to bottom
+            res.extend(matrix[i][r] for i in range(t, b + 1))
             r -= 1
             if l > r: break
-            for i in range(r, l - 1, -1): res.append(matrix[b][i]) # right to left
+            res.extend(matrix[b][i] for i in range(r, l - 1, -1))
             b -= 1
             if t > b: break
-            for i in range(b, t - 1, -1): res.append(matrix[i][l]) # bottom to top
+            res.extend(matrix[i][l] for i in range(b, t - 1, -1))
             l += 1
             if l > r: break
         return res

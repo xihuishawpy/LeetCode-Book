@@ -13,10 +13,7 @@ def print_matrix(mat):
     Args:
         mat ([type]): [description]
     """    
-    pstr = []
-    for arr in mat:
-        pstr.append('  ' + str(arr))
-
+    pstr = [f'  {str(arr)}' for arr in mat]
     print('[\n' + ',\n'.join(pstr) + '\n]')
 
 def print_linked_list(head):
@@ -51,11 +48,11 @@ def print_tree(root, prev=None, isLeft=False):
     """
     if root is None:
         return
- 
+
     prev_str = '    '
     trunk = Trunk(prev, prev_str)
     print_tree(root.right, trunk, True)
- 
+
     if prev is None:
         trunk.str = '———'
     elif isLeft:
@@ -64,9 +61,9 @@ def print_tree(root, prev=None, isLeft=False):
     else:
         trunk.str = '\———'
         prev.str = prev_str
- 
+
     showTrunks(trunk)
-    print(' ' + str(root.val))
+    print(f' {str(root.val)}')
     if prev:
         prev.str = prev_str
     trunk.str = '   |'

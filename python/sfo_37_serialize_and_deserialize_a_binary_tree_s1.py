@@ -14,12 +14,12 @@ class Codec:
         queue.append(root)
         res = []
         while queue:
-            node = queue.popleft()
-            if node:
+            if node := queue.popleft():
                 res.append(str(node.val))
                 queue.append(node.left)
                 queue.append(node.right)
-            else: res.append("null")
+            else:
+                res.append("null")
         return '[' + ','.join(res) + ']'
 
     def deserialize(self, data: str) -> TreeNode:

@@ -9,9 +9,7 @@ from include import *
 # ===== Solution Code =====
 class Solution:
     def reverseLeftWords(self, s: str, n: int) -> str:
-        res = []
-        for i in range(n, n + len(s)):
-            res.append(s[i % len(s)])
+        res = [s[i % len(s)] for i in range(n, n + len(s))]
         return ''.join(res)
 
 # ======= Test Case =======

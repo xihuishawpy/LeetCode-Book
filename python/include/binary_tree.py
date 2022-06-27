@@ -55,12 +55,12 @@ def tree_to_list(root):
     queue.append(root)
     res = []
     while queue:
-        node = queue.popleft()
-        if node:
+        if node := queue.popleft():
             res.append(node.val)
             queue.append(node.left)
             queue.append(node.right)
-        else: res.append(None)
+        else:
+            res.append(None)
     return res
 
 def get_tree_node(root, val):
@@ -79,4 +79,4 @@ def get_tree_node(root, val):
         return root
     left = get_tree_node(root.left, val)
     right = get_tree_node(root.right, val)
-    return left if left else right
+    return left or right

@@ -9,13 +9,16 @@ from include import *
 # ===== Solution Code =====
 class Solution:
     def isBalanced(self, root: TreeNode) -> bool:
-        if not root: return True
-        return abs(self.depth(root.left) - self.depth(root.right)) <= 1 and \
-            self.isBalanced(root.left) and self.isBalanced(root.right)
+        return (
+            abs(self.depth(root.left) - self.depth(root.right)) <= 1
+            and self.isBalanced(root.left)
+            and self.isBalanced(root.right)
+            if root
+            else True
+        )
 
     def depth(self, root):
-        if not root: return 0
-        return max(self.depth(root.left), self.depth(root.right)) + 1
+        return max(self.depth(root.left), self.depth(root.right)) + 1 if root else 0
 
 # ======= Test Case =======
 root = list_to_tree([3, 9, 20, None, None, 15, 7, None, None, None, None])
