@@ -9,11 +9,8 @@ from include import *
 # ===== Solution Code =====
 class Solution:
     def reverseLeftWords(self, s: str, n: int) -> str:
-        res = []
-        for i in range(n, len(s)):
-            res.append(s[i])
-        for i in range(n):
-            res.append(s[i])
+        res = [s[i] for i in range(n, len(s))]
+        res.extend(s[i] for i in range(n))
         return ''.join(res)
 
 # ======= Test Case =======

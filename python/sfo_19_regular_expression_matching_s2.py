@@ -22,9 +22,9 @@ class Solution:
                     if dp[i][j - 2]: dp[i][j] = True                              # 1.
                     elif dp[i - 1][j] and s[i - 1] == p[j - 2]: dp[i][j] = True   # 2.
                     elif dp[i - 1][j] and p[j - 2] == '.': dp[i][j] = True        # 3.
-                else:
-                    if dp[i - 1][j - 1] and s[i - 1] == p[j - 1]: dp[i][j] = True # 1.
-                    elif dp[i - 1][j - 1] and p[j - 1] == '.': dp[i][j] = True    # 2.
+                elif dp[i - 1][j - 1]:
+                    if s[i - 1] == p[j - 1]: dp[i][j] = True # 1.
+                    elif p[j - 1] == '.': dp[i][j] = True    # 2.
         return dp[-1][-1]
 
 # ======= Test Case =======

@@ -9,10 +9,7 @@ from include import *
 # ===== Solution Code =====
 class Solution:
     def printNumbers(self, n: int) -> List[int]:
-        res = []
-        for i in range(1, 10 ** n):
-            res.append(i)
-        return res
+        return list(range(1, 10 ** n))
 
 # ======= Test Case =======
 n = 1
